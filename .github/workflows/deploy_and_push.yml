@@ -31,9 +31,11 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git clone --single-branch --branch main https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git deploy_repo
-          rsync -av --delete ./dist/ deploy_repo/
-          cd deploy_repo
+          git init
+          git remote add origin https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git
+          git fetch origin gh-pages
+          git checkout -b gh-pages origin/gh-pages
+          rsync -av --delete ./dist/ ./
           git add .
           git commit -m "Deploy to GitHub Pages" || true
-          git push origin main
+          git push origin gh-pages
