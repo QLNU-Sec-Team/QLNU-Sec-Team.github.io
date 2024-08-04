@@ -2,19 +2,32 @@
 // 导入导航栏组件
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/footer.astro';
-
 // 接收页面标题和当前路径作为属性
 const { title, currentPath } = Astro.props;
 const siteName = 'QLNU-Sec-Team';
+const pageTitle = `${siteName} - ${title}`;
+const pageDescription = "齐鲁师范网络安全社团(QLNU-Sec-Team)官方网站";
+const pageUrl = `https://www.qlnu-sec.cn${currentPath || ''}`; // Replace with your actual site URL
+const imageUrl = 'https://www.qlnu-sec.cn/icon.png'; // Replace with your actual image URL
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="icon.png">
-  <title>{siteName} - {title}</title>
-  <!-- <link rel="stylesheet" href="/styles/global.css"> -->
+  <title>{pageTitle}</title>
+  <link rel="icon" type="image/png" href="/icon.png">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content={pageDescription}>
+  <meta name="keywords" content="cybersecurity, QLNU, security team, CTF, information security">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content={pageTitle}>
+  <meta property="og:description" content={pageDescription}>
+  <meta property="og:image" content={imageUrl}>
+  <meta property="og:url" content={pageUrl}>
+  <meta property="og:type" content="website">
 </head>
 <body>
   <Navbar currentPath={currentPath} />

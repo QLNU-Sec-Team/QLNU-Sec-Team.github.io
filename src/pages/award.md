@@ -1,17 +1,17 @@
 ---
 layout: ./layouts/BaseMarkdownLayout.astro
-title: '关于'
+title: '奖项'
 currentPath: "/award"
 ---
 
 <style>
 .content ul, .content ol {
-    line-height: 1.2 !important; /* 使用 !important 确保样式生效 */
-    margin-bottom: 1.2em !important; /* 使用 !important 确保样式生效 */
+    line-height: 1.2 ;
+    margin-bottom: 1.2em ; 
 }
 
 .content li {
-    margin-bottom: 0.6em !important; /* 使用 !important 确保样式生效 */
+    margin-bottom: 0.6em ;
 }
 </style>
 
@@ -36,3 +36,5 @@ currentPath: "/award"
 - 第六届“强网杯”全国网络安全挑战赛青少年总决赛 🥈二等奖
 - 2023黄河流域公安院校网络空间安全技能挑战赛 二等奖
 - 第十七届全国大学生信息安全竞赛—创新实践能力赛 华东北分区二等奖
+
+等待补充......
