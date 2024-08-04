@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  # push:
+  #   branches:
+  #     - main  # 设置为您项目的主分支
+  workflow_dispatch:
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # 设置为您项目所需的 Node.js 版本
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git clone --single-branch --branch main https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git deploy_repo
+          rsync -av --delete ./dist/ deploy_repo/
+          cd deploy_repo
+          git add .
+          git commit -m "Deploy to GitHub Pages" || true
+          git push origin main
