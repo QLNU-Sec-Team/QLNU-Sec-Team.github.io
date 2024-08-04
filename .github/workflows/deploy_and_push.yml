@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # push:
-  #   branches:
-  #     - main  # 设置为您项目的主分支
+  push:
+    branches:
+      - main  # 设置为您项目的主分支
   workflow_dispatch:
   
 jobs:
@@ -31,6 +31,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          if [ -d ".git" ]; then rm -rf .git; fi
           git init
           git remote add origin https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git
           git fetch origin gh-pages
