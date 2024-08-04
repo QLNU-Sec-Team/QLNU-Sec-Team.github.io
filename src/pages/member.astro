@@ -1,0 +1,65 @@
+---
+// 导入基础布局
+import BaseLayout from './layouts/BaseLayout.astro';
+import memberList from '../assets/memberList.json';
+
+// 按照索引排序
+const sortedIndexes = Object.keys(memberList).sort((a, b) => parseInt(a) - parseInt(b));
+---
+<BaseLayout title="成员 Members" currentPath="/member">
+  <h2>社团师傅们的博客</h2>
+  {sortedIndexes.map(index => {
+    const group = memberList[index];
+    // 按照名字的ASCII顺序排序
+    const sortedMembers = group.member.sort((a, b) => a.localeCompare(b));
+
+    return (
+      <div class="member-group">
+        <h3>{group.level}</h3>
+        <div class="member-list">
+          {sortedMembers.map(name => {
+            const link = group.link[name];
+            return (
+              <div class="member-item">
+                {link ? (
+                  <a href={link} target="_blank">{name}</a>
+                ) : (
+                  <span>{name}</span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  })}
+  <style>
+    .member-group {
+      margin-bottom: 20px;
+    }
+
+    .member-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .member-item {
+      padding: 10px;
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+
+    .member-item a {
+      color: #0f0f0f;
+      font-weight: bold;
+    }
+    
+    .member-item a:hover {
+      color: #1a0dab;
+      font-weight: bold;
+    }
+    
+
+  </style>
+</BaseLayout>

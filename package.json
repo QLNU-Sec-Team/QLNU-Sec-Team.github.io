@@ -1,0 +1,17 @@
+{
+  "name": "qlnu-sec-org",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans-sc": "^5.0.7",
+    "@fontsource-variable/overpass-mono": "^5.0.18",
+    "astro": "^4.12.2"
+  }
+}

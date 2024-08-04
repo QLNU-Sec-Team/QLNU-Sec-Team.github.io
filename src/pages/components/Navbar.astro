@@ -1,0 +1,145 @@
+---
+// 导入导航项组件
+import NavItem from './NavItem.astro';
+import { ViewTransitions } from 'astro:transitions';
+import '@fontsource-variable/overpass-mono'
+import '@fontsource-variable/noto-sans-sc';
+// 导航项数据，可以从API或文件中读取
+const navItems = [
+  { label: '关于 About', href: '/' },
+  { label: '成员 Members', href: '/member' },
+  { label: '奖项 Awards', href: '/award' },
+];
+
+const { currentPath } = Astro.props;
+const showName = '齐鲁师范网络安全社团';
+---
+<nav class="navbar">
+  <div class="logo-container">
+    <img src="/QLNU.png" alt="Logo" class="logo" />
+  </div>
+  <div>
+    {showName}
+  </div>
+  <br>
+  <ul>
+    {navItems.map(item => (
+      <NavItem label={item.label} href={item.href} isActive={item.href === currentPath} />
+    ))}
+  </ul>
+</nav>
+<ViewTransitions />
+<style>
+.navbar {
+  /* font-family: 'Overpass Mono Variable', monospace; */
+  font-family: 'Noto Sans SC Variable', sans-serif;
+  width: 220px;
+  position: fixed;
+  top: 50%;
+  left: 30px; /* 确保导航栏不靠最左边 */
+  height: auto;
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.navbar.horizontal {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+  padding: 10px 20px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar.horizontal ul {
+  flex-direction: row;
+  justify-content: space-around;
+  width: auto;
+  flex-grow: 1;
+}
+
+.navbar ul li {
+  width: 100%;
+  margin: 10px 0; /* 增加间距 */
+}
+
+.navbar.horizontal ul li {
+  margin: 0 10px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.navbar.horizontal .logo {
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    /* height: auto; */
+    position: relative;
+    top: 0;
+    
+    left: 0;
+    transform: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+  }
+
+  .navbar ul {
+    flex-direction: row;
+    justify-content: space-around;
+    width: auto;
+    flex-grow: 1;
+  }
+
+  .navbar ul li {
+    margin: 0 10px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+  body{
+    font-family: 'Overpass Mono Variable', monospace;
+  }
+}
+</style>

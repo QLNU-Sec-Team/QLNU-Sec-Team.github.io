@@ -1,0 +1,74 @@
+---
+const contactEmail = 'contact@qlnu-sec.cn';
+const weChatImage = '/wx.svg'; // 请确保 wx.svg 的路径正确
+const creator = 'shenghuo2';
+---
+<footer class="footer">
+  <div class="footer-content">
+    <div class="contact-info">
+      <p>联系邮箱：<a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
+      <div class="wechat-info">
+        <p>微信公众号：</p>
+        <div class="wechat-image-container">
+          <img src={weChatImage} alt="WeChat QR Code" class="wechat-image" />
+        </div>
+      </div>
+      <div>
+        © <a href="https://github.com/QLNU-Sec-Team">QLNU-Sec-Team</a>
+        2024 <br> Designed by <a href="https://blog.shenghuo2.top/">{creator}</a> using Astro
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #ccc; /* 灰色背景 */
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* 确保 footer 在页面顶部 */
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* 减小行间距 */
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* 垂直居中 */
+    gap: 20px;
+  }
+
+  .footer a {
+    color: #333;
+    /* text-decoration: none; */
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  .wechat-info {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+  }
+
+  .wechat-image-container {
+    background-color: white; /* 设置背景颜色为白色 */
+    padding: 2px; /* 添加内边距 */
+    border-radius: 3px; /* 可选：添加圆角 */
+  }
+
+  .wechat-image {
+    width: 80px;
+    height: 80px;
+    display: block; /* 确保图片为块级元素 */
+  }
+</style>
