@@ -31,15 +31,16 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          rm -rf .git
+          if [ -d ".git" ]; then rm -rf .git; fi
           git init
           git remote add origin https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git
-          if git fetch origin gh-pages; then
-            git checkout -b gh-pages origin/gh-pages
+          if git ls-remote --exit-code origin gh-pages; then
+            git fetch origin gh-pages
+            git checkout gh-pages
           else
             git checkout --orphan gh-pages
           fi
-          rsync -av --delete ./dist/ ./ || (echo "Rsync had some issues, but continuing..." && true)
+          rsync -av --delete ./dist/ ./ || true
           git add .
           git commit -m "Deploy to GitHub Pages" || true
           git push -u origin gh-pages
