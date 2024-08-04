@@ -1,0 +1,56 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/footer.astro';
+
+const { frontmatter } = Astro.props;
+const siteName = 'QLNU-Sec-Team';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{siteName} - {frontmatter.title}</title>
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body>
+  <Navbar currentPath={frontmatter.currentPath} />
+  <div class="content">
+    <slot transition:animate="slide" />
+  </div>
+  <Footer />
+  <style>
+    .content {
+        margin-left: calc(50% - 500px + 160px);
+        margin-right: 3%;
+        padding-top: 60px; /* 留出导航栏的高度 */
+        max-width: 800px;
+    }
+
+    @media (max-width: 1200px) {
+      .content {
+        margin-left: 260px;
+        margin-right: 10%;
+        padding-top: 60px; /* 留出导航栏的高度 */
+        max-width: 800px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        margin-left: 3%;
+        margin-right: 3%;
+        padding-top: 60px; /* 留出导航栏的高度 */
+      }
+    }
+    
+    body {
+        padding-bottom: 150px; /* 根据 footer 的高度设置适当的填充 */
+        font-family: 'Noto Sans SC Variable', sans-serif;
+      }
+
+    
+
+  </style>
+</body>
+</html>
