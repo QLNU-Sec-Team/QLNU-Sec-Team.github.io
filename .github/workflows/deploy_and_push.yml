@@ -3,9 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # 设置为您项目的主分支
+      - main
   workflow_dispatch:
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -26,37 +26,9 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        run: |
-          set -e
-          echo "Configuring Git"
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-          echo "Initializing Git repository"
-          if [ -d ".git" ]; then rm -rf .git; fi
-          git init
-          git remote add origin https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git
-
-          echo "Fetching gh-pages branch"
-          if git ls-remote --exit-code origin gh-pages; then
-            git fetch origin gh-pages
-            git checkout gh-pages
-          else
-            git checkout --orphan gh-pages
-          fi
-
-          echo "Running rsync"
-          rsync -av --delete ./dist/ ./ || true
-
-          echo "Adding changes to git"
-          git add .
-
-          echo "Committing changes"
-          git commit -m "Deploy to GitHub Pages" || true
-
-          echo "Pushing to gh-pages branch"
-          git push -u origin gh-pages || true
-
-          echo "Deployment completed successfully"
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: shenghuo2/shenghuo2.github.io
+          publish_branch: main  # 设置目标仓库的发布分支
+          publish_dir: ./dist  # 设置为您的项目构建输出目录
