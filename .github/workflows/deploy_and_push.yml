@@ -31,7 +31,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          if [ -d ".git" ]; then rm -rf .git; fi
+          rm -rf .git
           git init
           git remote add origin https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git
           if git fetch origin gh-pages; then
@@ -39,7 +39,7 @@ jobs:
           else
             git checkout --orphan gh-pages
           fi
-          rsync -av --delete ./dist/ ./ || true
+          rsync -av --delete ./dist/ ./ || (echo "Rsync had some issues, but continuing..." && true)
           git add .
           git commit -m "Deploy to GitHub Pages" || true
           git push -u origin gh-pages
