@@ -34,9 +34,12 @@ jobs:
           if [ -d ".git" ]; then rm -rf .git; fi
           git init
           git remote add origin https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/shenghuo2/shenghuo2.github.io.git
-          git fetch origin gh-pages
-          git checkout -b gh-pages origin/gh-pages
-          rsync -av --delete ./dist/ ./
+          if git fetch origin gh-pages; then
+            git checkout -b gh-pages origin/gh-pages
+          else
+            git checkout --orphan gh-pages
+          fi
+          rsync -av --delete ./dist/ ./ || true
           git add .
           git commit -m "Deploy to GitHub Pages" || true
-          git push origin gh-pages
+          git push -u origin gh-pages
