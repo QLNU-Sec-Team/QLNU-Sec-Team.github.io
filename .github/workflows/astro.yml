@@ -5,7 +5,7 @@ on:
     branches:
       - main  # 设置为您项目的主分支
   workflow_dispatch:
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,6 +24,9 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Create CNAME file
+        run: echo 'www.qlnu-sec.cn' > ./dist/CNAME  # 将 'your-custom-domain.com' 替换为您的自定义域名
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
