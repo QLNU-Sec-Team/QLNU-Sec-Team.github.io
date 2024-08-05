@@ -2,7 +2,7 @@
 // 导入导航项组件
 import NavItem from './NavItem.astro';
 import { ViewTransitions } from 'astro:transitions';
-import '@fontsource-variable/overpass-mono'
+import '@fontsource-variable/overpass-mono';
 import '@fontsource-variable/noto-sans-sc';
 // 导航项数据，可以从API或文件中读取
 const navItems = [
@@ -16,12 +16,13 @@ const showName = '齐鲁师范网络安全社团';
 ---
 <nav class="navbar">
   <div class="logo-container">
-    <img src="/QLNU.png" alt="Logo" class="logo" />
+    <a href="https://www.qlnu-sec.cn/">
+      <img src="/QLNU.png" alt="Logo" class="logo" />
+    </a>
   </div>
-  <div>
+  <div class="show-name">
     {showName}
   </div>
-  <br>
   <ul>
     {navItems.map(item => (
       <NavItem label={item.label} href={item.href} isActive={item.href === currentPath} />
@@ -31,7 +32,6 @@ const showName = '齐鲁师范网络安全社团';
 <ViewTransitions />
 <style>
 .navbar {
-  /* font-family: 'Overpass Mono Variable', monospace; */
   font-family: 'Noto Sans SC Variable', sans-serif;
   width: 220px;
   position: fixed;
@@ -99,6 +99,11 @@ const showName = '齐鲁师范网络安全社团';
   margin-bottom: 20px;
 }
 
+.show-name {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .navbar.horizontal .logo {
   margin-bottom: 0;
   margin-right: 20px;
@@ -107,18 +112,15 @@ const showName = '齐鲁师范网络安全社团';
 @media (max-width: 768px) {
   .navbar {
     width: 100%;
-    /* height: auto; */
     position: relative;
     top: 0;
-    
     left: 0;
     transform: none;
     padding-top: 10px;
     padding-bottom: 10px;
-
     flex-direction: row;
-    /* justify-content: flex-start; */
-    /* align-items: center; */
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .navbar ul {
@@ -133,12 +135,18 @@ const showName = '齐鲁师范网络安全社团';
   }
 
   .logo {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 4%;
     margin-bottom: 0;
-    margin-right: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
   }
-  body{
+
+  .show-name {
+    display: none;
+  }
+
+  body {
     font-family: 'Overpass Mono Variable', monospace;
   }
 }
