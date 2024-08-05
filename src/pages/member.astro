@@ -8,7 +8,7 @@ const sortedIndexes = Object.keys(memberList).sort((a, b) => parseInt(a) - parse
 ---
 <BaseLayout title="成员 Members" currentPath="/member">
   <h2>社团师傅们的博客</h2>
-  <p>部分师傅因隐私原因未在此处</p>
+  <p>部分师傅因隐私原因未在此处出现</p>
   
   {sortedIndexes.map(index => {
     const group = memberList[index];
