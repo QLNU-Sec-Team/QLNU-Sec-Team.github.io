@@ -8,14 +8,15 @@ const creator = 'shenghuo2';
     <div class="contact-info">
       <p>联系邮箱：<a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
       <div class="wechat-info">
-        <p>微信公众号：</p>
+        <div class="wx"></div>
         <div class="wechat-image-container">
           <img src={weChatImage} alt="WeChat QR Code" class="wechat-image" />
         </div>
       </div>
       <div>
+        <div class="copyright">
         © <a href="https://github.com/QLNU-Sec-Team">QLNU-Sec-Team</a>
-        2024 <br> Designed by <a href="https://blog.shenghuo2.top/">{creator}</a> using Astro
+        2024 <br> Designed by <a style="color:black;" href=`https://github.com/${creator}`>{creator}</a> using Astro
       </div>
     </div>
   </div>
@@ -60,6 +61,10 @@ const creator = 'shenghuo2';
     align-items: center; /* 垂直居中 */
   }
 
+  .wx::after {
+    content: "微信公众号：";
+  }
+
   .wechat-image-container {
     background-color: white; /* 设置背景颜色为白色 */
     padding: 2px; /* 添加内边距 */
@@ -71,4 +76,67 @@ const creator = 'shenghuo2';
     height: 80px;
     display: block; /* 确保图片为块级元素 */
   }
+  @media (max-width: 768px) {
+
+.footer {
+  background-color: #f1f1f1;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  font-size: smaller;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wechat-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .wx::after {
+    content: "公众号";
+    /* writing-mode: vertical-rl; */
+    text-orientation: mixed;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 5px; /* 调整这个值以实现所需的间距 */
+  }
+.wx-container {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  margin-right: 20px;
+  margin: -5px 0;
+}
+
+.wx-container img {
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+}
+
+
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .wx-container {
+    flex-direction: column;
+  }
+  .copyright{
+    display: none;
+    margin-right: 20px;
+  }
+}
 </style>
