@@ -39,32 +39,38 @@ const imageUrl = 'https://www.qlnu-sec.cn/icon.png'; // Replace with your actual
     .content {
         margin-left: calc(50% - 500px + 160px);
         margin-right: 3%;
-        padding-top: 60px; /* 留出导航栏的高度 */
+        padding-top: 40px; /* 留出导航栏的高度 */
         max-width: 800px;
+    }
+
+    body {
+
+        padding-bottom: 150px; /* 根据 footer 的高度设置适当的填充 */
+        font-family: 'Noto Sans SC Variable', sans-serif;
     }
 
     @media (max-width: 1200px) {
       .content {
         margin-left: 260px;
         margin-right: 10%;
-        padding-top: 60px; /* 留出导航栏的高度 */
+        padding-top: 40px; /* 留出导航栏的高度 */
         max-width: 800px;
       }
     }
 
+    
     @media (max-width: 768px) {
       .content {
         margin-left: 3%;
         margin-right: 3%;
-        padding-top: 60px; /* 留出导航栏的高度 */
+        padding-top: 10px; /* 留出导航栏的高度 */
       }
+
+      body {
+        padding-bottom: 10px; /* 根据 footer 的高度设置适当的填充 */
     }
     
-    body {
-        padding-bottom: 150px; /* 根据 footer 的高度设置适当的填充 */
-        font-family: 'Noto Sans SC Variable', sans-serif;
-    }
-
+  }
 
 
   </style>
