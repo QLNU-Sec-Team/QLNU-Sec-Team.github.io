@@ -50,9 +50,49 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 ## Contributors
 
 <!-- readme: shenghuo2,collaborators,contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/shenghuo2">
+                    <img src="https://avatars.githubusercontent.com/u/69127301?v=4" width="80;" alt="shenghuo2"/>
+                    <br />
+                    <sub><b>shenghuo2</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/CG-Jue">
+                    <img src="https://avatars.githubusercontent.com/u/131164348?v=4" width="80;" alt="CG-Jue"/>
+                    <br />
+                    <sub><b>CGjue</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Yhuanhuan01">
+                    <img src="https://avatars.githubusercontent.com/u/118103563?v=4" width="80;" alt="Yhuanhuan01"/>
+                    <br />
+                    <sub><b>huan</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <!-- readme: shenghuo2,collaborators,contributors -end -->
 
 ### Bots
 
 <!-- readme: bots -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/github-actions[bot]">
+                    <img src="https://avatars.githubusercontent.com/in/15368?v=4" width="80;" alt="github-actions[bot]"/>
+                    <br />
+                    <sub><b>github-actions[bot]</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <!-- readme: bots -end -->
