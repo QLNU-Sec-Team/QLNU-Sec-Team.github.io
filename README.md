@@ -179,6 +179,20 @@ nodejs 项目清单
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/suyoleaves">
+                    <img src="https://avatars.githubusercontent.com/u/69106541?v=4" width="80;" alt="suyoleaves"/>
+                    <br />
+                    <sub><b>fishfond</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/qingchuana">
+                    <img src="https://avatars.githubusercontent.com/u/131779281?v=4" width="80;" alt="qingchuana"/>
+                    <br />
+                    <sub><b>Q1ngchuan</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Yhuanhuan01">
                     <img src="https://avatars.githubusercontent.com/u/118103563?v=4" width="80;" alt="Yhuanhuan01"/>
                     <br />
