@@ -33,27 +33,29 @@ const imageUrl = 'https://www.qlnu-sec.cn/icon.png'; // Replace with your actual
   <Navbar currentPath={currentPath} />
   <div class="content">
     <slot />
+    <Footer /> 
+
   </div>
-  <Footer />
+
   <style>
+   
     .content {
         margin-left: calc(50% - 500px + 160px);
         margin-right: 3%;
-        padding-top: 40px; /* 留出导航栏的高度 */
         max-width: 800px;
+        border-left: 1px solid black; /* 设置左边框 */
+        padding-left: 3%; /* 给内容留出一些空间 */
     }
 
     body {
-
-        padding-bottom: 150px; /* 根据 footer 的高度设置适当的填充 */
+        background-color: white;
+        padding-bottom: 1px; /* 根据 footer 的高度设置适当的填充 */
         font-family: 'Noto Sans SC Variable', sans-serif;
     }
-
     @media (max-width: 1200px) {
       .content {
         margin-left: 260px;
         margin-right: 10%;
-        padding-top: 40px; /* 留出导航栏的高度 */
         max-width: 800px;
       }
     }
@@ -63,7 +65,8 @@ const imageUrl = 'https://www.qlnu-sec.cn/icon.png'; // Replace with your actual
       .content {
         margin-left: 3%;
         margin-right: 3%;
-        padding-top: 10px; /* 留出导航栏的高度 */
+        border-left: none;
+        padding-left: 0;
       }
 
       body {

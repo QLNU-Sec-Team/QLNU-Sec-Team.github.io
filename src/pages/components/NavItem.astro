@@ -7,6 +7,7 @@ const { label, href, isActive } = Astro.props;
 </li>
 
 <style>
+
 .nav-link {
   text-decoration: none;
   color: #333;
@@ -28,8 +29,8 @@ const { label, href, isActive } = Astro.props;
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(0, 0, 0, 0.1);
-  transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+  background: rgba(206, 206, 206, 0.4);
+  transition: left 0.3s ease;
   border-radius: 50%;
 }
 
@@ -41,7 +42,7 @@ const { label, href, isActive } = Astro.props;
 }
 
 .nav-link:hover:not(.active) {
-  color: #333; /* 保持字体颜色不变 */
+  color: #000000; /* 保持字体颜色不变 */
 }
 
 .nav-link.active {
