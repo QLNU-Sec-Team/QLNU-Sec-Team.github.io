@@ -193,6 +193,13 @@ nodejs 项目清单
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/f1ngy3">
+                    <img src="https://avatars.githubusercontent.com/u/126939293?v=4" width="80;" alt="f1ngy3"/>
+                    <br />
+                    <sub><b>f1ngy3</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Yhuanhuan01">
                     <img src="https://avatars.githubusercontent.com/u/118103563?v=4" width="80;" alt="Yhuanhuan01"/>
                     <br />
