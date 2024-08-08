@@ -1,6 +1,6 @@
 ---
 layout: ./layouts/BaseMarkdownLayout.astro
-title: '奖项'
+title: '奖项 Awards'
 currentPath: "/award"
 ---
 
