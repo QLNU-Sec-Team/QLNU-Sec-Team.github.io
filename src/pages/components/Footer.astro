@@ -1,35 +1,38 @@
 ---
 const contactEmail = 'contact@qlnu-sec.cn';
+
 const weChatImage = '/wx.svg'; // 请确保 wx.svg 的路径正确
 const creator = 'shenghuo2';
 ---
+<hr>
 <footer class="footer">
   <div class="footer-content">
     <div class="contact-info">
-      <p>联系邮箱：<a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
       <div class="wechat-info">
         <div class="wx"></div>
         <div class="wechat-image-container">
           <img src={weChatImage} alt="WeChat QR Code" class="wechat-image" />
         </div>
       </div>
-      <div>
-        <div class="copyright">
-        © <a href="https://github.com/QLNU-Sec-Team">QLNU-Sec-Team</a>
-        2024 <br> Designed by <a style="color:black;" href=`https://github.com/${creator}`>{creator}</a> using Astro
-      </div>
     </div>
   </div>
-</footer>
+  <div>
+    <div class="copyright">
+      
+    © <a href="https://github.com/QLNU-Sec-Team">QLNU-Sec-Team</a>
+    2024 <br>联系邮箱：<a href={`mailto:${contactEmail}`}>{contactEmail}</a><br> Designed by <a style="color:black;" href=`https://github.com/${creator}`>{creator}</a> using Astro
+    <br>
 
+  </div>
+</footer>
 <style>
   .footer {
-    background-color: #ccc; /* 灰色背景 */
+    background-color: #ffffff; /* 灰色背景 */
+    border-radius: 4px;
     padding: 10px;
+    margin: auto;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    width: 80%;
     z-index: 1000; /* 确保 footer 在页面顶部 */
   }
 
@@ -37,6 +40,8 @@ const creator = 'shenghuo2';
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    
     gap: 5px; /* 减小行间距 */
   }
 
@@ -58,11 +63,12 @@ const creator = 'shenghuo2';
 
   .wechat-info {
     display: flex;
+    flex-direction: column;
     align-items: center; /* 垂直居中 */
   }
 
   .wx::after {
-    content: "微信公众号：";
+    content: "微信公众号";
   }
 
   .wechat-image-container {
@@ -76,67 +82,13 @@ const creator = 'shenghuo2';
     height: 80px;
     display: block; /* 确保图片为块级元素 */
   }
-  @media (max-width: 768px) {
-
+@media (max-width: 768px) {
 .footer {
-  background-color: #f1f1f1;
-  position: relative;
+  background-color: #ffffff;
   padding: 20px;
   text-align: center;
   font-size: smaller;
-  margin-top: 50px;
+  margin-top: 0;
 }
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.wechat-info {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .wx {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .wx::after {
-    content: "公众号";
-    /* writing-mode: vertical-rl; */
-    text-orientation: mixed;
-    white-space: nowrap;
-    text-align: center;
-    margin-bottom: 5px; /* 调整这个值以实现所需的间距 */
-  }
-.wx-container {
-  display: flex;
-  align-items: center;
-  padding-right: 20px;
-  margin-right: 20px;
-  margin: -5px 0;
-}
-
-.wx-container img {
-  background-color: white;
-  width: 80px;
-  height: 80px;
-  margin-left: 10px;
-}
-
-
-  .footer-content {
-    flex-direction: column;
-  }
-  
-  .wx-container {
-    flex-direction: column;
-  }
-  .copyright{
-    display: none;
-    margin-right: 20px;
-  }
 }
 </style>

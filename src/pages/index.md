@@ -3,7 +3,15 @@ layout: ./layouts/BaseMarkdownLayout.astro
 title: '关于 About'
 currentPath: '/'
 ---
+<style>
 
+   p {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+</style>
 # 关于我们
 
 “齐鲁师范网络安全社团”（QLNU-Sec-Team）是一个由学生自发组建的组织，主要面向全校各年级对网络安全技术感兴趣的同学。

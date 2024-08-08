@@ -5,13 +5,9 @@ currentPath: "/award"
 ---
 
 <style>
-.content ul, .content ol {
-    line-height: 1.2 ;
-    margin-bottom: 1.2em ; 
-}
-
-.content li {
-    margin-bottom: 0.6em ;
+.content ul, .content li {
+    list-style-type: square;font-size: 17px;line-height: 20px;
+    margin-bottom: 0.6em ; 
 }
 
 img {
