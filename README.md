@@ -179,6 +179,13 @@ nodejs 项目清单
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Yalois">
+                    <img src="https://avatars.githubusercontent.com/u/40634854?v=4" width="80;" alt="Yalois"/>
+                    <br />
+                    <sub><b>Yalois</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/suyoleaves">
                     <img src="https://avatars.githubusercontent.com/u/69106541?v=4" width="80;" alt="suyoleaves"/>
                     <br />
@@ -199,6 +206,8 @@ nodejs 项目清单
                     <sub><b>f1ngy3</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Yhuanhuan01">
                     <img src="https://avatars.githubusercontent.com/u/118103563?v=4" width="80;" alt="Yhuanhuan01"/>
