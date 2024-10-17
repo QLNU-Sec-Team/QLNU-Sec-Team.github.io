@@ -11,7 +11,7 @@ currentPath: "/award"
 }
 
 img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
 }
 
