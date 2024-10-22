@@ -1,0 +1,80 @@
+---
+// 导入基础布局
+import BaseLayout from './layouts/BaseLayout.astro';
+import friendList from '../assets/friends.json';
+
+---
+
+<BaseLayout title="友链 Friends" currentPath="/friends">
+  <h1>友情链接</h1>
+  <p>友情直达~!!</p>
+  <div class="friend-list">
+    {friendList.map(friend => (
+    <div class="friend-link">
+      <div class="avatar">
+          <img src={friend.avatar} alt="头像" />
+      </div>
+      <div class="info">
+          <div class="name">{friend.name}</div>
+          <div class="description">{friend.description}</div>
+      </div>
+      <a href={friend.link} class="button">访问</a>
+    </div>
+    ))}
+  </div>
+
+
+<style>
+  .friend-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    margin-bottom: 60%;
+}
+
+.avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.avatar img {
+    width: 100%;
+    height: auto;
+}
+
+.info {
+    flex-grow: 1;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+}
+
+.button {
+    text-decoration: none;
+    background-color: #4b4e52;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #000000;
+}
+
+</style>
+</BaseLayout>

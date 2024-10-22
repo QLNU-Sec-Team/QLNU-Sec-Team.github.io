@@ -5,13 +5,14 @@ import { ViewTransitions } from 'astro:transitions';
 import '@fontsource-variable/overpass-mono';
 import '@fontsource-variable/noto-sans-sc';
 import Footer from './Footer.astro';
+
 // 导航项数据，可以从API或文件中读取
 const navItems = [
   { label: '关于 About', href: '/' },
   { label: '成员 Members', href: '/member' },
   { label: '奖项 Awards', href: '/award' },
+  { label: '友链 Friends', href: '/friends' },
 ];
-
 const { currentPath } = Astro.props;
 const showName = '齐鲁师范网络安全社团';
 ---
@@ -24,16 +25,46 @@ const showName = '齐鲁师范网络安全社团';
   <div class="show-name">
     {showName}
   </div>
-  <ul>
+  <ul id="menu">
     {navItems.map(item => (
       <NavItem label={item.label} href={item.href} isActive={item.href === currentPath} />
     ))}
-
   </ul>
-  
+  <!--  <ViewTransitions /> 会导致menu.js失效，移除一下暂时先  -->
+  <div class="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
 </nav>
-<ViewTransitions />
+
+<div class="nav2"> 
+<ul class="lmenu">
+  {navItems.map(item => (
+    <NavItem label={item.label} href={item.href} isActive={item.href === currentPath} />
+  ))}
+</ul>
+</div>
+
 <style>
+.nav2{
+  display: none;
+}
+.hamburger {
+  display: none;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 5px;
+  background-color: #000000;
+}
+
 .navbar {
   font-family: 'Noto Sans SC Variable', sans-serif;
   width: 180px;
@@ -155,4 +186,46 @@ const showName = '齐鲁师范网络安全社团';
     font-family: 'Overpass Mono Variable', monospace;
   }
 }
+@media (max-width: 500px) {
+  .show-name {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;  
+  }
+  .nav2{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .hidetag
+  {
+    display: none;
+  }
+  .lmenu{
+    background-color: rgba(255, 255, 255, 0.8); 
+    display: flex;
+    list-style-type: none;
+    padding: 3px;
+    margin: 0;
+    flex-direction: column;
+  }
+  .hamburger {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .logo {
+    width: 40px;
+    height: 4%;
+    margin-bottom: 0;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
+}
+
+
 </style>
