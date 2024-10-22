@@ -59,10 +59,10 @@
 按照以下格式新增
 ```
 {
-    "name": "",
-    "description": "",
-    "avatar": "",
-    "link" : ""
+    "name": "", //名称
+    "description": "", //描述
+    "avatar": "", //要求https图片链接
+    "link" : "" //网站链接
 }
 ```
 
@@ -79,6 +79,8 @@
 ```
 .
 ├── public
+│   ├── scripts
+│   │   └── menu.js
 │   ├── favicon.svg
 │   ├── icon.png
 │   ├── QLNU.png
@@ -100,8 +102,6 @@
 │   │   ├── friends.astro
 │   │   └── member.astro
 │   │   
-│   ├── scripts
-│   │   └── menu.js
 │   ├── styles
 │   │   └── global.css
 │   └── env.d.ts
