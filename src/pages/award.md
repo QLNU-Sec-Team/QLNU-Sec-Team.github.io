@@ -8,12 +8,7 @@ currentPath: "/award"
 .content ul, .content li {
     list-style-type: square;font-size: 17px;line-height: 20px;
     margin-bottom: 0.6em ; 
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
+} 
 
 </style>
 
@@ -21,7 +16,7 @@ img {
 
 # 荣誉
 仅为部分奖项
-![award](</award_1.jpg>)
+<img src="/award_1.jpg" class="award" style="max-width: 100%; height: auto;">
 
 ## 2022
 - XCTF第五期个人认证第9名

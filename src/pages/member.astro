@@ -7,7 +7,7 @@ import memberList from '../assets/memberList.json';
 const sortedIndexes = Object.keys(memberList).sort((a, b) => parseInt(a) - parseInt(b));
 ---
 <BaseLayout title="成员 Members" currentPath="/member">
-  <h1>社团师傅们的博客</h2>
+  <h1>社团师傅们的博客</h1>
   <p>部分师傅因隐私原因未在此处出现</p>
   
   {sortedIndexes.map(index => {
