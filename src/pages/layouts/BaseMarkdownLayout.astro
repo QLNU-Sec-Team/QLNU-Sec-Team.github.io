@@ -1,7 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-
 const { frontmatter } = Astro.props;
 const siteName = 'QLNU-Sec-Team';
 const pageTitle = frontmatter?.title ? `${siteName} - ${frontmatter.title}` : siteName;
@@ -16,7 +15,7 @@ const imageUrl = 'https://www.qlnu-sec.cn/icon.png'; // Replace with your actual
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{pageTitle}</title>
   <link rel="icon" type="image/png" href="/icon.png">
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content={pageDescription}>
   <meta name="keywords" content="cybersecurity, QLNU, security team, CTF, information security">
@@ -72,6 +71,6 @@ const imageUrl = 'https://www.qlnu-sec.cn/icon.png'; // Replace with your actual
     
   }
   </style>
-
+  <script is:inline src="/scripts/menu.js"></script>
 </body>
 </html>
