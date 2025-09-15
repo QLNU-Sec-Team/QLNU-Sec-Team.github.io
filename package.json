@@ -12,6 +12,6 @@
   "dependencies": {
     "@fontsource-variable/noto-sans-sc": "^5.0.7",
     "@fontsource-variable/overpass-mono": "^5.0.18",
-    "astro": "^4.12.2"
+    "astro": "^4.16.19"
   }
 }
