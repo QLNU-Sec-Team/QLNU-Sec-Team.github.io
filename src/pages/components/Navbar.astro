@@ -32,14 +32,14 @@ const showName = '齐鲁师范学院网络安全社团';
     ))}
   </ul>
   <ViewTransitions /> 
-  <div class="hamburger" onclick="switchMenu()">
+  <button type="button" class="hamburger" data-menu-toggle aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
-  </div>
+  </button>
 </nav>
 
-<ul class="nav2 hidetag">
+<ul class="nav2 hidetag" id="mobileMenu">
   {navItems.map(item => (
     <NavItem label={item.label} href={item.href} isActive={item.href === currentPath} />
   ))}
@@ -53,6 +53,9 @@ const showName = '齐鲁师范学院网络安全社团';
   position: absolute;
   right: 20px;
   cursor: pointer;
+  border: 0;
+  padding: 0;
+  background: none;
 }
 
 .hamburger .line {
@@ -230,3 +233,38 @@ const showName = '齐鲁师范学院网络安全社团';
 
 
 </style>
+<script>
+  // 移动端菜单逻辑：事件委托绑定一次，DOM 由 ViewTransitions 整体替换后依然有效
+  const initKey = '__qlnuMenuToggleBound';
+  if (!window[initKey]) {
+    window[initKey] = true;
+
+    const setMenu = (open) => {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.querySelector('[data-menu-toggle]');
+      if (menu) menu.classList.toggle('hidetag', !open);
+      if (toggle) toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    document.addEventListener('click', (event) => {
+      const toggle = event.target.closest('[data-menu-toggle]');
+      if (toggle) {
+        // 仅在移动端视口（<500px，菜单与汉堡按钮出现的断点）下生效
+        if (window.innerWidth >= 500) return;
+        const menu = document.getElementById('mobileMenu');
+        if (!menu) return;
+        setMenu(menu.classList.contains('hidetag'));
+        return;
+      }
+      // 点击移动菜单内的链接后收起菜单
+      if (event.target.closest('#mobileMenu a')) {
+        setMenu(false);
+      }
+    });
+
+    // 视口放大到桌面端时强制收起菜单
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 500) setMenu(false);
+    });
+  }
+</script>

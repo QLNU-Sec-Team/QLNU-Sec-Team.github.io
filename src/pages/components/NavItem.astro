@@ -2,7 +2,7 @@
 // 接受导航项的属性
 const { label, href, isActive } = Astro.props;
 ---
-<li onclick="switchMenu()">
+<li>
   <a href={href} class={`nav-link ${isActive ? 'active' : ''}`}>{label}</a>
 </li>
 
