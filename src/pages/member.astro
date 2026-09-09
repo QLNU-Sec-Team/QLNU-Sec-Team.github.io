@@ -47,19 +47,29 @@ const sortedIndexes = Object.keys(memberList).sort((a, b) => parseInt(a) - parse
     }
 
     .member-item {
-      padding: 10px;
-      background: #f1f1f1;
-      border-radius: 5px;
+      padding: 10px 14px;
+      background: #f6f7f8;
+      border: 1px solid #eceef0;
+      border-radius: 8px;
+      font-size: 14.5px;
+      transition: all 0.2s ease;
+    }
+
+    .member-item:hover {
+      background: #ffffff;
+      border-color: #cdd0d4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transform: translateY(-1px);
     }
 
     .member-item a {
-      color: #0f0f0f;
-      font-weight: bold;
+      color: #15181c;
+      font-weight: 600;
     }
     
     .member-item a:hover {
       color: #1a0dab;
-      font-weight: bold;
+      font-weight: 600;
     }
     
 

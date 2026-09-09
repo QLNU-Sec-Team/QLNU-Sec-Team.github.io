@@ -27,13 +27,15 @@ const creator = 'shenghuo2';
 </footer>
 <style>
   .footer {
-    background-color: #ffffff; /* 灰色背景 */
-    border-radius: 4px;
-    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 16px 10px 20px;
     margin: auto;
     text-align: center;
     width: 80%;
-    z-index: 1000; /* 确保 footer 在页面顶部 */
+    color: #555;
+    font-size: 14px;
+    line-height: 1.9;
   }
 
   .footer-content {
@@ -41,8 +43,7 @@ const creator = 'shenghuo2';
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
-    gap: 5px; /* 减小行间距 */
+    gap: 10px; /* 减小行间距 */
   }
 
   .contact-info {
@@ -53,11 +54,12 @@ const creator = 'shenghuo2';
   }
 
   .footer a {
-    color: #333;
-    /* text-decoration: none; */
+    color: #4a4a4a;
+    transition: color 0.2s ease;
   }
 
   .footer a:hover {
+    color: #000;
     text-decoration: underline;
   }
 
@@ -69,12 +71,19 @@ const creator = 'shenghuo2';
 
   .wx::after {
     content: "微信公众号";
+    font-size: 13px;
+    color: #888;
   }
 
   .wechat-image-container {
     background-color: white; /* 设置背景颜色为白色 */
-    padding: 2px; /* 添加内边距 */
-    border-radius: 3px; /* 可选：添加圆角 */
+    padding: 4px; /* 添加内边距 */
+    border-radius: 8px;
+    border: 1px solid #ececec;
+    transition: box-shadow 0.25s ease;
+  }
+  .wechat-image-container:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   }
 
   .wechat-image {
@@ -87,7 +96,7 @@ const creator = 'shenghuo2';
   background-color: #ffffff;
   padding: 20px;
   text-align: center;
-  font-size: smaller;
+  font-size: 13px;
   margin-top: 0;
 }
 }

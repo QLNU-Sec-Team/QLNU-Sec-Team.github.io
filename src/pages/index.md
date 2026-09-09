@@ -7,7 +7,7 @@ currentPath: '/'
 
    p {
     font-size: 17px;
-    line-height: 1.5;
+    line-height: 1.75;
     margin-bottom: 20px;
     text-indent: 2em; /* 首行缩进 */
     text-align: justify; /* 两端对齐 */

@@ -26,17 +26,25 @@ import friendList from '../assets/friends.json';
 
 <style>
   .friend-list {
-    margin-bottom: 70%;
+    margin-bottom: 60px;
   }
   .friend-link {
     display: flex;
     align-items: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px 0;
-    background-color: #f9f9f9;
-}
+    padding: 12px 14px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    margin: 12px 0;
+    background-color: #fbfbfb;
+    transition: all 0.25s ease;
+  }
+
+  .friend-link:hover {
+    background-color: #ffffff;
+    border-color: #c8c8c8;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+  }
 
 .avatar {
     border-radius: 50%;
