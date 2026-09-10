@@ -32,14 +32,14 @@ const showName = '齐鲁师范学院网络安全社团';
     ))}
   </ul>
   <ViewTransitions /> 
-  <div class="hamburger" onclick="switchMenu()">
+  <button type="button" class="hamburger" data-menu-toggle aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
-  </div>
+  </button>
 </nav>
 
-<ul class="nav2 hidetag">
+<ul class="nav2 hidetag" id="mobileMenu">
   {navItems.map(item => (
     <NavItem label={item.label} href={item.href} isActive={item.href === currentPath} />
   ))}
@@ -51,16 +51,19 @@ const showName = '齐鲁师范学院网络安全社团';
 .hamburger {
   display: none;
   position: absolute;
-  right: 20px;
   cursor: pointer;
+  border: 0;
+  padding: 0;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger .line {
   display: block;
-  width: 30px;
-  height: 4px;
-  margin-bottom: 5px;
-  background-color: #000000;
+  width: 22px;
+  height: 2px;
+  border-radius: 3px;
+  background-color: #6b6b6b;
 }
 
 .navbar {
@@ -101,6 +104,8 @@ const showName = '齐鲁师范学院网络安全社团';
   flex-direction: column;
   align-items: center;
   width: 100%;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 18px;
 }
 
 .navbar.horizontal ul {
@@ -129,11 +134,24 @@ const showName = '齐鲁师范学院网络安全社团';
   width: 120px;
   height: 120px;
   margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.14);
 }
 
 .show-name {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
 }
 
 .navbar.horizontal .logo {
@@ -152,33 +170,75 @@ const showName = '齐鲁师范学院网络安全社团';
     top: 0;
     left: 0;
     transform: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 60px;
+    padding: 0 12px;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    z-index: 10;
   }
 
-  .navbar ul {
-    flex-direction: row;
-    justify-content: space-around;
-    width: auto;
-    flex-grow: 1;
-  }
-
-  .navbar ul li {
-    margin: 0 10px;
+  #menu {
+    display: none;
   }
 
   .logo {
     width: 40px;
-    height: 4%;
-    margin-bottom: 0;
-    margin-left: 20px;
-    margin-right: 10px;
+    height: 40px;
+    margin: 0;
+    box-shadow: none;
+  }
+  .logo:hover {
+    transform: none;
+    box-shadow: none;
   }
 
   .show-name {
+    flex: 1;
+    min-width: 0;
+    margin: 0 12px;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    padding: 10px;
+    z-index: 20;
+  }
+
+  .nav2 {
+    border-radius: 10px;
+    width: 168px;
+    display: flex;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    list-style-type: none;
+    padding: 6px;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 12px;
+    z-index: 999;
+  }
+  .hidetag {
     display: none;
   }
 
@@ -186,47 +246,41 @@ const showName = '齐鲁师范学院网络安全社团';
     font-family: 'Overpass Mono Variable', monospace;
   }
 }
-@media (max-width: 500px) {
-  .show-name {
-    margin-top: 10px;
-    display: block;
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 20px;  
-  }
-  .nav2{
-    border-radius: 10px;
-    width: 150px;
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.8); 
-    list-style-type: none;
-    padding: 3px;
-    margin: 0;
-    flex-direction: column;
-    position: absolute; 
-    top: 80px;
-    right: 0;
-    margin-right: 8px;
-  }
-  .hidetag
-  {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
-  .navbar ul {
-    display: none;
-  }
-  .logo {
-    width: 40px;
-    height: 4%;
-    margin-bottom: 0;
-    margin-left: 20px;
-    margin-right: 10px;
-  }
-
-}
 
 
 </style>
+<script>
+  // 移动端菜单逻辑：事件委托绑定一次，DOM 由 ViewTransitions 整体替换后依然有效
+  const initKey = '__qlnuMenuToggleBound';
+  if (!window[initKey]) {
+    window[initKey] = true;
+
+    const setMenu = (open) => {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.querySelector('[data-menu-toggle]');
+      if (menu) menu.classList.toggle('hidetag', !open);
+      if (toggle) toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    document.addEventListener('click', (event) => {
+      const toggle = event.target.closest('[data-menu-toggle]');
+      if (toggle) {
+        // 仅在移动端视口（<768px，菜单与汉堡按钮出现的断点）下生效
+        if (window.innerWidth >= 768) return;
+        const menu = document.getElementById('mobileMenu');
+        if (!menu) return;
+        setMenu(menu.classList.contains('hidetag'));
+        return;
+      }
+      // 点击移动菜单内的链接后收起菜单
+      if (event.target.closest('#mobileMenu a')) {
+        setMenu(false);
+      }
+    });
+
+    // 视口放大到桌面端时强制收起菜单
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) setMenu(false);
+    });
+  }
+</script>

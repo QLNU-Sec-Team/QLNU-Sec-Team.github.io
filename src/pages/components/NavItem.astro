@@ -2,7 +2,7 @@
 // 接受导航项的属性
 const { label, href, isActive } = Astro.props;
 ---
-<li onclick="switchMenu()">
+<li>
   <a href={href} class={`nav-link ${isActive ? 'active' : ''}`}>{label}</a>
 </li>
 
@@ -10,7 +10,7 @@ const { label, href, isActive } = Astro.props;
 
 .nav-link {
   text-decoration: none;
-  color: #333;
+  color: #3c3c3c;
   padding: 10px 20px;
   display: block;
   text-align: center;
@@ -20,7 +20,8 @@ const { label, href, isActive } = Astro.props;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  transition: color 0.4s ease;
+  font-size: 14.5px;
+  transition: color 0.3s ease, background 0.3s ease, transform 0.2s ease;
 }
 
 .nav-link::before {
@@ -30,8 +31,8 @@ const { label, href, isActive } = Astro.props;
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(206, 206, 206, 0.4);
-  transition: left 0.3s ease;
+  background: rgba(0, 0, 0, 0.07);
+  transition: left 0.35s ease;
   border-radius: 50%;
 }
 
@@ -49,6 +50,8 @@ const { label, href, isActive } = Astro.props;
 .nav-link.active {
   background-color: #333;
   color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
