@@ -217,17 +217,17 @@ nodejs 项目清单
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/CG-Jue">
-                    <img src="https://avatars.githubusercontent.com/u/131164348?v=4" width="80;" alt="CG-Jue"/>
-                    <br />
-                    <sub><b>CGjue</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Yalois">
                     <img src="https://avatars.githubusercontent.com/u/40634854?v=4" width="80;" alt="Yalois"/>
                     <br />
                     <sub><b>Yalois</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/CG-Jue">
+                    <img src="https://avatars.githubusercontent.com/u/131164348?v=4" width="80;" alt="CG-Jue"/>
+                    <br />
+                    <sub><b>CGjue</b></sub>
                 </a>
             </td>
             <td align="center">
